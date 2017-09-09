@@ -11,10 +11,9 @@
   "devDependencies": {
     "jest": "^19.0.2"
   },
+  "engines": { "node": ">6" },
   "jest": {
-    "roots": [
-      "<rootDir>/tests"
-    ],
+    "roots": ["<rootDir>/tests"],
     "testRegex": ".*_spec\\.js$"
   }
 }
