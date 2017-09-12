@@ -1,23 +1,24 @@
 // Method 2
+//  for demo purpose, pseudo AST, within a single closure without leaking scopes
 
+const SHOW_TREE = false;
+const STYLES = {
+  BOLD: 'b',
+  ITALIC: 'i',
+};
+const ESCAPE = {
+  ' ': '&nbsp;',
+  '<': '&lt;',
+  '>': '&gt;',
+};
+
+// Note: this function conceils its implementation safely
 module.exports = styledString => {
-  // [Method 2] for demo purpose, pseudo AST, within a single closure without leaking scopes
-
-  const SHOW_TREE = false;
-  const STYLES = {
-    BOLD: 'b',
-    ITALIC: 'i',
-  };
-  const ESCAPE = {
-    ' ': '&nbsp;',
-    '<': '&lt;',
-    '>': '&gt;',
-  };
-
   // token position
   let i = 0;
   const compareStyles = (currentStyle, newStyle) => {
     for (let styleName in newStyle) {
+      // we could check hasOwnProperty here but negligible with STYLES check and static typing
       if (STYLES[styleName]) {
         if (!!currentStyle[styleName] !== !!newStyle[styleName]) {
           return [styleName, STYLES[styleName], newStyle[styleName]];

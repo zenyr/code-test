@@ -1,7 +1,7 @@
 // Method 1
+//  simple for loop, only for the base spec. KISS
 
 module.exports = styledString => {
-  // simple for loop, only for the base spec
   const aChars = [];
   if (styledString && styledString.length) {
     let wasBold = false;

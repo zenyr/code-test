@@ -95,6 +95,7 @@ StyledStringParser._stringify = oNode => {
 // static(instance agnostic) shallow style diff
 StyledStringParser._compareStyles = (currentStyle, newStyle) => {
   for (let styleName in newStyle) {
+    // we could check hasOwnProperty here but negligible with STYLES check and static typing
     if (StyledStringParser.STYLES[styleName]) {
       if (!!currentStyle[styleName] !== !!newStyle[styleName]) {
         return [
